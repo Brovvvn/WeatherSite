@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, session, make_response
+from flask import Flask, render_template, jsonify, request, session, make_response, redirect, url_for
 import requests
 import json
 
@@ -37,6 +37,10 @@ def home():
             # Add to beginning and limit to 5 entries
             search_history.insert(0, history_entry)
             search_history = search_history[:5]
+        
+        resp = make_response(redirect(url_for('home')))
+        resp.set_cookie('search_history', json.dumps(search_history), max_age=60*60*24*365)
+        return resp
     
     use_fahrenheit = session.get("america", False)
     resp = make_response(render_template("site.html", weather_data=weather_data, use_fahrenheit=use_fahrenheit, search_history=search_history))
@@ -157,5 +161,4 @@ def get_emoji(id):
             return "☁️"
         case _:
             return ""
-
 
