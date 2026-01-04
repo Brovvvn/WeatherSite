@@ -38,9 +38,15 @@ def home():
             search_history.insert(0, history_entry)
             search_history = search_history[:5]
         
+        # Store weather data in session for redirect
+        session["weather_data"] = weather_data
         resp = make_response(redirect(url_for('home')))
         resp.set_cookie('search_history', json.dumps(search_history), max_age=60*60*24*365)
         return resp
+    
+    # Retrieve weather data from session if it exists
+    if "weather_data" in session:
+        weather_data = session.pop("weather_data")
     
     use_fahrenheit = session.get("america", False)
     resp = make_response(render_template("site.html", weather_data=weather_data, use_fahrenheit=use_fahrenheit, search_history=search_history))
