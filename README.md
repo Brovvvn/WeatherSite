@@ -1,2 +1,4 @@
 # WeatherSite
-This repository includes the source code of the website "WeatherSite", made in Python with flask and html. The website suppies the user with information about the weather in cities of the user's choosing and uses some cookies for small QOL stuff.
+This repository includes the source code of the website "WeatherSite", made with Flask in Python and HTML and deployed with Vercel.
+It is a weather "app" that takes user input and dispenses information about weather in a city.
+Check it out here: https://weather-site-brovvn.vercel.app/
