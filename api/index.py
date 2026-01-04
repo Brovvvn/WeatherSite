@@ -20,9 +20,8 @@ def home():
         session["america"] = america
         weather_data = get_weather(city)
         
-        # Add to search history if valid weather data
         if weather_data and not str(weather_data.get("temp_c", "")).startswith(("400", "401", "403", "404", "500", "502", "503", "504", "ERROR")):
-            # Create history entry
+
             history_entry = {
                 "city": city,
                 "temp_c": weather_data["temp_c"],
@@ -31,22 +30,18 @@ def home():
                 "emoji": weather_data["emoji"]
             }
             
-            # Remove duplicate if exists (same city)
             search_history = [h for h in search_history if h["city"].lower() != city.lower()]
             
-            # Add to beginning and limit to 5 entries
             search_history.insert(0, history_entry)
             search_history = search_history[:5]
         
-        # Store weather data in session for redirect
         session["weather_data"] = weather_data
         resp = make_response(redirect(url_for('home')))
         resp.set_cookie('search_history', json.dumps(search_history), max_age=60*60*24*365)
         return resp
     
-    # Retrieve weather data from session if it exists
     if "weather_data" in session:
-        weather_data = session.pop("weather_data")
+        weather_data = session["weather_data"]
     
     use_fahrenheit = session.get("america", False)
     resp = make_response(render_template("site.html", weather_data=weather_data, use_fahrenheit=use_fahrenheit, search_history=search_history))
@@ -167,4 +162,3 @@ def get_emoji(id):
             return "☁️"
         case _:
             return ""
-
