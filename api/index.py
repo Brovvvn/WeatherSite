@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify, request, session, make_respon
 import requests
 import json
 
-app = Flask(__name__, template_folder='../templates')
+app = Flask(__name__)
 app.secret_key = "f8a4d7c2b9e1a6d3c5f7e9b2a4d6c8e1"
 
 @app.route("/about")
@@ -157,4 +157,5 @@ def get_emoji(id):
             return "☁️"
         case _:
             return ""
+
 
