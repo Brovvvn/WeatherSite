@@ -226,6 +226,7 @@
         
         {% if weather_data %}
         <div class="middle-section">
+            <p class="city-name">{{ weather_data.city }}</p>
             <h2 class="current-temp" data-temp-c="{{ weather_data.temp_c }}" data-temp-f="{{ weather_data.temp_f }}">
                 {{ weather_data.emoji }} <span class="temp-value">{{ weather_data.temp_f if use_fahrenheit else weather_data.temp_c }}</span><span class="temp-unit">{% if weather_data.temp_c is number %}{{ '°F' if use_fahrenheit else '°C' }}{% endif %}</span>
             </h2>
