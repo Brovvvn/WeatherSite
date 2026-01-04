@@ -158,5 +158,4 @@ def get_emoji(id):
         case _:
             return ""
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
