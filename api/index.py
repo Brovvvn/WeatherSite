@@ -63,6 +63,7 @@ def get_weather(city):
             temp_f = int((temp_k * 9/5) - 459.67)
             emoji = get_emoji(data["weather"][0]["id"])
             return {
+                "city": city,
                 "temp_c": temp_c,
                 "temp_f": temp_f,
                 "description": data["weather"][0]["description"],
@@ -162,3 +163,4 @@ def get_emoji(id):
             return "☁️"
         case _:
             return ""
+
