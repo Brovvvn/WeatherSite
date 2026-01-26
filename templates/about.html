@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About - Weather Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #328fcd 0%, white 30%, white 100%);
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        a {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: white;
+            text-decoration: underline;
+            font-size: 16px;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            line-height: 1.8;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+        }
+
+        .content a {
+            color: #328fcd;
+            margin-bottom: 0;
+        }
+
+        .content a:hover {
+            color: #3270cd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/">← Back to Weather Site</a>
+        <h1>About the Site</h1>
+
+        <div class="content">
+          <p>Welcome to Weather Site, a fullstack website made for searching up weather by city.</p>
+          <p>This website allows you to quickly check the weather for any city around the world. With a clean, modern interface powered by the OpenWeatherMap API, you can get up-to-date weather information in seconds.</p>
+
+          <p><strong>Features:</strong></p>
+          <ul style="margin-left: 20px; margin-bottom: 15px;">
+              <li>Real-time weather data for any city</li>
+              <li>Toggle between Celsius and Fahrenheit instantly</li>
+              <li>Keep track and control your recent searches with persistent cookies</li>
+              <li>Autocomplete suggestions for city names</li>
+          </ul>
+
+          <p>This site is made with Flask and Python, and it is a small project I made to refresh myself on HTML elements and general flask structures.</p>
+          <p>Find more small stuff here: <a href="https://github.com/Brovvvn">https://github.com/Brovvvn</a></p>
+        </div>
+    </div>
+</body>
+</html>
