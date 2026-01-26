@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify, request, session, make_response, redirect, url_for
 import requests
 import json
+from app import app
 
 app = Flask(__name__)
 app.secret_key = "f8a4d7c2b9e1a6d3c5f7e9b2a4d6c8e1"
@@ -163,4 +164,5 @@ def get_emoji(id):
             return "☁️"
         case _:
             return ""
+
 
